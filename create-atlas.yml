@@ -1,0 +1,22 @@
+---
+- hosts: webapp
+  vars:
+    user: ENTER-MONGODB-ATLAS-USERNAME-HERE
+    apikey: ENTER-SECRET-API-KEY-HERE
+    groupid: ENTER-GROUPID-HERE
+  remote_user: ec2-user
+  become: true
+  tasks:
+    - name: pip httplib2
+    # ansible uri module requires httplib2
+      pip: name=httplib2 extra_args="--user"
+    - name: setup atlas
+      uri:     
+        url: https://cloud.mongodb.com/api/atlas/v1.0/groups/{{ groupid }}/clusters/
+        method: POST
+        user: "{{ user }}"
+        password: "{{ apikey }}"
+        body: "{{ lookup('file','atlas.json') }}"
+        body_format: json
+        HEADER_Content-Type: "application/json"
+        status_code: 201

@@ -1,0 +1,15 @@
+{
+  "name" : "DataStore1",
+  "numShards" : 1,
+  "mongoDBMajorVersion" : "3.4",
+  "replicationFactor" : 3,
+  "providerSettings" : {
+    "providerName" : "AWS",
+    "regionName" : "US_EAST_1",
+    "instanceSizeName" : "M30",
+    "diskIOPS" : 120,
+    "encryptEBSVolume" : false,
+  },
+  "diskSizeGB" : 40,
+  "backupEnabled" : true
+}

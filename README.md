@@ -1,2 +1,1 @@
-# atlas-ansible
-Create a MongoDB Atlas cluster with Ansible
+#WIP - Atlas cluster creation with Ansible
